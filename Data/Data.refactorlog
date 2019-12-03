@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Operations Version="1.0" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+  <Operation Name="Rename Refactor" Key="daf40389-c152-4025-92f0-34e616f667bd" ChangeDateTime="12/02/2019 01:16:22">
+    <Property Name="ElementName" Value="[dbo].[Raw].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Raw]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="RawID" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="0ac2b35e-d61a-4623-9054-16ec70bd0f42" ChangeDateTime="12/02/2019 01:45:48">
+    <Property Name="ElementName" Value="[dbo].[Raw].[TmeIN]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Raw]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="TimeIN" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="53b78567-6eb5-4f40-9c70-934b620a129d" ChangeDateTime="12/02/2019 02:28:51">
+    <Property Name="ElementName" Value="[dbo].[Raw].[TimeIN]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Raw]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="TIN" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="298e8d2d-cdab-4d93-b580-bd4de8577a1e" ChangeDateTime="12/02/2019 02:33:04">
+    <Property Name="ElementName" Value="[dbo].[Raw].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Raw]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="RawID" />
+  </Operation>
+</Operations>
