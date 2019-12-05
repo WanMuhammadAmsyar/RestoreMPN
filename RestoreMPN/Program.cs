@@ -14,16 +14,16 @@ namespace RestoreMPN
 {
     class Program
     {
-        static string commandIn ="",commandOut="";
+        static string commandIn ="",commandOut="", commandmssqlIn,commandmssqlOut;
         static string fileName = "",folderName = "",dataBaseSource="";
         static System.IO.StreamReader file;
         static int failed = 0;
         static string sqlstring = "SERVER=127.0.0.1;PORT=3306;DATABASE=ffdb;UID=root;PASSWORD=;";
+        static string mssqlstring = "";
         static void Main(string[] args)
         {
             Welcome();
             readFile();
-
         }
         static void Welcome()
         {
@@ -50,12 +50,14 @@ namespace RestoreMPN
             int DeviceID;
             string updatedstring;
             MySqlConnection conn = new MySqlConnection(sqlstring);
+            SqlConnection msconn = new SqlConnection(mssqlstring);
             foreach (string s in listFiles)
             {
 
                 Random random = new Random();
 
                 conn.Open();
+                msconn.Open();
                 Excel.Application excel = new Excel.Application();
                 Excel.Workbook excelbook = excel.Workbooks.Open(s);
                 Excel._Worksheet excelsheet = excelbook.Sheets[1];
@@ -74,11 +76,14 @@ namespace RestoreMPN
                     if (timeIn != "NULL")
                     {
                         Console.WriteLine(tarikhIn + " " + timeIn);
+                        commandmssqlIn = "";
                         commandIn = "INSERT INTO `raw`(`StaffID`, `TID`, `TimeIN`, `TimeID`, `LogType`, `FlagProses`, `EnrollID`, `FlagUpdate`) VALUES (0,'" + random.Next(6, 12).ToString() + "','" + tarikhIn + " " + timeIn + "',0,0,0," + updatedstring + ",0)";
                         MySqlCommand command = new MySqlCommand(commandIn, conn);
+                        SqlCommand commandms = new SqlCommand(commandmssqlIn, msconn);
                         try
                         {
                             command.ExecuteNonQuery();
+                            commandms.ExecuteNonQuery();
                         }
                         catch
                         {
@@ -88,11 +93,14 @@ namespace RestoreMPN
                     if (timeOut != "NULL")
                     {
                         Console.WriteLine(tarikhOut + " " + timeOut);
+                        commandmssqlOut = "";
                         commandOut = "INSERT INTO `raw`(`StaffID`, `TID`, `TimeIN`, `TimeID`, `LogType`, `FlagProses`, `EnrollID`, `FlagUpdate`) VALUES ('0','" + random.Next(6, 12).ToString() + "','" + tarikhOut + " " + timeOut + "','0','0','false','" + updatedstring + "','false')";
                         MySqlCommand command = new MySqlCommand(commandOut, conn);
+                        SqlCommand commandms = new SqlCommand(commandmssqlOut, msconn);
                         try
                         {
                             command.ExecuteNonQuery();
+                            commandms.ExecuteNonQuery();
                         }
                         catch
                         {

@@ -1,0 +1,9 @@
+C:\Users\User\Desktop\RestoreMPN\FFDB\bin\Debug\FFDB.dacpac
+C:\Users\User\Desktop\RestoreMPN\FFDB\bin\Debug\FFDB.dll
+C:\Users\User\Desktop\RestoreMPN\FFDB\bin\Debug\FFDB.pdb
+C:\Users\User\Desktop\RestoreMPN\FFDB\obj\Debug\Model.xml
+C:\Users\User\Desktop\RestoreMPN\FFDB\obj\Debug\refactor.xml
+C:\Users\User\Desktop\RestoreMPN\FFDB\obj\Debug\postdeploy.sql
+C:\Users\User\Desktop\RestoreMPN\FFDB\obj\Debug\predeploy.sql
+C:\Users\User\Desktop\RestoreMPN\FFDB\obj\Debug\FFDB.dll
+C:\Users\User\Desktop\RestoreMPN\FFDB\obj\Debug\FFDB.pdb
