@@ -12,3 +12,4 @@ C:\Users\User\Desktop\RestoreMPN\RestoreMPN\obj\Debug\RestoreMPN.csproj.ResolveC
 C:\Users\User\Desktop\RestoreMPN\RestoreMPN\obj\Debug\RestoreMPN.csproj.CopyComplete
 C:\Users\User\Desktop\RestoreMPN\RestoreMPN\obj\Debug\RestoreMPN.exe
 C:\Users\User\Desktop\RestoreMPN\RestoreMPN\obj\Debug\RestoreMPN.pdb
+C:\Users\User\Desktop\RestoreMPN\RestoreMPN\obj\Debug\RestoreMPN.csprojAssemblyReference.cache

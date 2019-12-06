@@ -20,7 +20,7 @@ namespace RestoreMPN
         static int failed = 0;
         static string sqlstring = "SERVER=127.0.0.1;PORT=3306;DATABASE=ffdb;UID=root;PASSWORD=;";
         //static string mssqlstring = "Data Source=(localdb)\\ProjectsV13;Initial Catalog=FFDB;Integrated Security=True;Connect Timeout=60;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
-        static string mssqlstring = "Server=LAMBCHOP;Database=FFSQLDB_test;User Id=Ffusr;Password=keR19a9;";
+        static string mssqlstring = "Server=LAMBCHOP;Database=FFSQLDB_new;User Id=Ffusr;Password=keR19a9;";
         static void Main(string[] args)
         {
             Welcome();
@@ -77,7 +77,7 @@ namespace RestoreMPN
                     if (timeIn != "NULL")
                     {
                         Console.WriteLine(tarikhIn + " " + timeIn);
-                        commandmssqlIn = "INSERT INTO dbo.Raw (StaffID,TID,TimeIN,TimeID,LogType,FlagProses,EnrollID,LRawID,BranchID) VALUES(0,"+random.Next(6,12)+",'"+tarikhIn+" "+timeIn+"',0,0,0,"+updatedstring+",0,0)";
+                        commandmssqlIn = "INSERT INTO dbo.Raw (StaffID,TID,TimeIN,TimeID,LogType,FlagProses,EnrollID,LRawID,BranchID) VALUES(0,100,'"+tarikhIn+" "+timeIn+"',0,0,0,"+updatedstring+",0,0)";
                         //commandIn = "INSERT INTO `raw`(`StaffID`, `TID`, `TimeIN`, `TimeID`, `LogType`, `FlagProses`, `EnrollID`, `FlagUpdate`) VALUES (0,'" + random.Next(6, 12).ToString() + "','" + tarikhIn + " " + timeIn + "',0,0,0," + updatedstring + ",0)";
                         //MySqlCommand command = new MySqlCommand(commandIn, conn);
                         SqlCommand commandms = new SqlCommand(commandmssqlIn, msconn);
