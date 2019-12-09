@@ -19,9 +19,9 @@ namespace RestoreMPN
         static string fileName = "",folderName = "",dataBaseSource="";
         static System.IO.StreamReader file;
         static int failed = 0;
-        static string sqlstring = "SERVER=127.0.0.1;PORT=3306;DATABASE=ffdb;UID=root;PASSWORD=;";
-        //static string mssqlstring = "Data Source=(localdb)\\ProjectsV13;Initial Catalog=FFDB;Integrated Security=True;Connect Timeout=60;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
-        static string mssqlstring = "Server=LAMBCHOP;Database=FFSQLDB_new;User Id=Ffusr;Password=keR19a9;";
+        //static string sqlstring = "SERVER=127.0.0.1;PORT=3306;DATABASE=ffdb;UID=root;PASSWORD=;";
+        static string mssqlstring = "Data Source=(localdb)\\ProjectsV13;Initial Catalog=FFDB;Integrated Security=True;Connect Timeout=60;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+        //static string mssqlstring = "Server=LAMBCHOP;Database=FFSQLDB_new;User Id=Ffusr;Password=keR19a9;";
         static void Main(string[] args)
         {
             Welcome();
@@ -95,7 +95,7 @@ namespace RestoreMPN
                             }
                             else
                             {
-                                Console.WriteLine("Non from above");
+                                TIDIn = 54;
                             }
                             Console.WriteLine(TIDIn + " " + tarikhIn + " " + timeIn);
                             commandmssqlIn = "INSERT INTO dbo.Raw (StaffID,TID,TimeIN,TimeID,LogType,FlagProses,EnrollID,LRawID,BranchID) VALUES(0," + TIDIn + ",'" + tarikhIn + " " + timeIn + "',0,0,0," + updatedstring + ",0,0)";
@@ -128,7 +128,7 @@ namespace RestoreMPN
                             }
                             else
                             {
-                                Console.WriteLine("Non From above");
+                                TIDOut = 54;
                             }
                             Console.WriteLine(tarikhOut + " " + timeOut);
                             commandmssqlOut = "INSERT INTO dbo.Raw (StaffID,TID,TimeIN,TimeID,LogType,FlagProses,EnrollID,LRawID,BranchID) VALUES(0," + TIDOut + ",'" + tarikhOut + " " + timeOut + "',0,0,0," + updatedstring + ",0,0)";
@@ -168,6 +168,52 @@ namespace RestoreMPN
                 }
             }
         }
+        public void Leave(string[] listFiles)
+        {
+            string deviceUserId, tarikhIn, tarikhOut, timeIn, timeOut;
+            string terminalin, terminalout;
+            char[] UID;
+            int DeviceID;
+            string updatedstring;
+            //MySqlConnection conn = new MySqlConnection(sqlstring);
+            SqlConnection msconn = new SqlConnection(mssqlstring);
+            foreach (string s in listFiles)
+            {
+                try
+                {
+                    Random random = new Random();
 
+                    //conn.Open();
+                    msconn.Open();
+                    Excel.Application excel = new Excel.Application();
+                    Excel.Workbook excelbook = excel.Workbooks.Open(s);
+                    Excel._Worksheet excelsheet = excelbook.Sheets[1];
+                    Excel.Range range = excelsheet.UsedRange;
+                    for (int i = 2; i <= range.Rows.Count; i++)
+                    {
+                        
+                    }
+                    GC.Collect();
+                    GC.WaitForPendingFinalizers();
+                    Marshal.ReleaseComObject(range);
+                    Marshal.ReleaseComObject(excelsheet);
+
+                    //close and release
+                    excelbook.Close();
+                    Marshal.ReleaseComObject(excelbook);
+
+                    //quit and release
+                    excel.Quit();
+                    Marshal.ReleaseComObject(excel);
+
+                    //conn.Close();
+                    msconn.Close();
+                }
+                catch
+                {
+                    continue;
+                }
+            }
+        }
     }
 }
